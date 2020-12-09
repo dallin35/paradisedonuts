@@ -2,17 +2,17 @@ AWSTemplateFormatVersion: 2010-09-09
 Parameters: 
   ProjectSource: 
     Type: String
-    Default: "https://github.com/qswitcher/imgterest"
+    Default: "https://github.com/dallin35/paradisedonuts"
     Description: "Source control URL (e.g. Github)"
   GithubOwner:
     Type: String
-    Default: qswitcher
+    Default: dallin35
   GithubRepo:
     Type: String
-    Default: my-test-app
+    Default: paradisedonuts
   GithubOAuthToken:
     Type: String
-    Description: "Github personal access token"
+    Description: "07550343c597bf9c6c81e16713ac02a991d1ab54"
   
 Resources:
   CodePipeline:
@@ -35,7 +35,7 @@ Resources:
                 Version: 1
               OutputArtifacts: 
                 - 
-                  Name: MyApp
+                  Name: Krispy
               Configuration:
                 Owner: !Ref GithubOwner
                 Repo: !Ref GithubRepo
@@ -53,10 +53,10 @@ Resources:
                 Provider: CodeBuild
               InputArtifacts: 
                 - 
-                  Name: MyApp
+                  Name: Krispy
               OutputArtifacts: 
                 - 
-                  Name: MyAppBuild
+                  Name: KrispyBuild
               Configuration:
                 ProjectName: !Ref CodeBuild
   CodeBuildRole:
@@ -149,7 +149,7 @@ Resources:
       ServiceRole: !GetAtt CodeBuildRole.Arn
       Artifacts:
         Type: CODEPIPELINE
-        Name: MyProject
+        Name: KrispyProject
       Source: 
         Type: CODEPIPELINE
       Environment:
