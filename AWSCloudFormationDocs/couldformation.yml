@@ -155,7 +155,7 @@ Resources:
       Environment:
         ComputeType: BUILD_GENERAL1_SMALL
         Type: LINUX_CONTAINER
-        Image: "aws/codebuild/nodejs:8.11.0"
+        Image: "aws/codebuild/nodejs:12.16.1"
       Source:
         Type: CODEPIPELINE
         BuildSpec: !Sub |
